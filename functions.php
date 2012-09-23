@@ -14,7 +14,7 @@ function isXHR() {
  */
 function connect() {
 	global $pdo;
-    $pdo = new PDO("mysql:host=instance27230.db.xeround.com.:16122;dbname=sakila", "woot", "woot");
+    $pdo = new PDO("mysql:host=instance27230.db.xeround.com:16122;dbname=sakila", "woot", "woot");
 }
 
 /**
