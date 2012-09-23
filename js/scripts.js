@@ -6,13 +6,21 @@
     init: function(config) {
       this.config = config;
       this.setupTemplates();
-      return this.bindEvents();
+      this.bindEvents();
+      return $.ajaxSetup({
+        url: 'index.php',
+        type: 'POST',
+        dataType: 'json'
+      });
     },
     bindEvents: function() {
-      return this.config.letterSelection.on('change', this.fetchActors);
+      this.config.letterSelection.on('change', this.fetchActors);
+      this.config.actorsList.on('click', 'li', this.displayActorInfo);
+      return this.config.actorInfo.on('click', 'span.close', this.closeOverlay);
     },
     setupTemplates: function() {
       this.config.actorListTemplate = Handlebars.compile(this.config.actorListTemplate);
+      this.config.actorInfoTemplate = Handlebars.compile(this.config.actorInfoTemplate);
       return Handlebars.registerHelper('fullName', function(actor) {
         return "" + actor.first_name + " " + actor.last_name;
       });
@@ -20,12 +28,8 @@
     fetchActors: function() {
       var self;
       self = Actors;
-      console.log(self.config.form.serialize());
       return $.ajax({
-        url: 'index.php',
-        type: 'POST',
         data: self.config.form.serialize(),
-        dataType: 'json',
         success: function(results) {
           self.config.actorsList.html('');
           if (results[0]) {
@@ -35,6 +39,25 @@
           }
         }
       });
+    },
+    displayActorInfo: function(e) {
+      var self;
+      self = Actors;
+      self.config.actorInfo.slideUp(300);
+      $.ajax({
+        data: {
+          actor_id: $(this).data('actor_id')
+        },
+        success: function(results) {}
+      }).done(function(results) {
+        return self.config.actorInfo.html(self.config.actorInfoTemplate(results)).slideDown(300);
+      });
+      return e.preventDefault();
+    },
+    closeOverlay: function() {
+      var self;
+      self = Actors;
+      return self.config.actorInfo.slideUp(300);
     }
   };
 
@@ -42,7 +65,9 @@
     letterSelection: $('#q'),
     form: $('#action-selector'),
     actorListTemplate: $('#actor-list-template').html(),
-    actorsList: $('ul.actors-list')
+    actorsList: $('ul.actors-list'),
+    actorInfo: $('.actor-info'),
+    actorInfoTemplate: $('#actor-info-template').html()
   });
 
 }).call(this);

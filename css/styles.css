@@ -1,0 +1,21 @@
+.actor-info { 
+	background-color: #eee;
+	padding: 20px;
+	display: none; 
+	position: absolute;
+	top: 0;
+	width: 800px;
+	-webkit-box-shadow: 5px 5px 5px #bbb;
+}
+.actor-info p {
+	margin: 20px;	
+}
+select#q { margin: 10px; }
+span.close { 
+	cursor: pointer; 
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 10px;
+}
+div.container { padding: 20px; box-shadow: 0 0 30px #ccc; }
