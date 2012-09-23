@@ -10,6 +10,7 @@ actor's information.
 * basic PHP template for page re-use
 * fallback if JavaScript is not enabled
 * twitter bootstrap for basic preset styling 
+* CoffeeScript for javascript fun https://github.com/design48/actor-db-php-jquery/blob/master/js/scripts.coffee
 
 ## Screenshots
 
