@@ -17,7 +17,12 @@ View working version here: http://actorsearch-design48.herokuapp.com/
 * fallback if JavaScript is not enabled
 * twitter bootstrap for basic preset styling 
 * CoffeeScript for javascript fun https://github.com/design48/actor-db-php-jquery/blob/master/js/scripts.coffee
-* Heroku.com cloud app platform for ease of deployment via git 
+* http://www.heroku.com cloud app platform for ease of deployment via git 
+
+## Tech Notes
+
+* had issues migrating MySQL database from local to cloud. Was getting access denied issues regarding `TRIGGERS` and `FUNCTIONS` defined that needed **SUPER** privilege access. 
+* For import onto demo database, I manually deleted those triggers and functions as I was not going to be doing any inserts, just querying for display
 
 ## Screenshots
 
