@@ -5,12 +5,19 @@ an actor's database called **sakila** found on the [MySQL Dev website](http://de
 This app uses ajax calls to bypass page refresh to provide seamless access to
 actor's information.
 
+## Demo
+
+View working version here: http://actorsearch-design48.herokuapp.com/
+
+## Notes
+
 * uses PHP's PDO (PHP Data Objects) extension to provide interface for for accessing
   a MySQL database
 * basic PHP template for page re-use
 * fallback if JavaScript is not enabled
 * twitter bootstrap for basic preset styling 
 * CoffeeScript for javascript fun https://github.com/design48/actor-db-php-jquery/blob/master/js/scripts.coffee
+* Heroku.com cloud app platform for ease of deployment via git 
 
 ## Screenshots
 
