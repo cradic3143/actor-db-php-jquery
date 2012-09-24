@@ -14,8 +14,10 @@ function isXHR() {
  */
 function connect() {
 	global $pdo;
-    $dbUrl = getenv('EXTERNAL_DATABASE_URL');
-    $pdo = new PDO($dbUrl);
+    $dbString   = getenv('EXTERNAL_MYSQL_STRING');
+    $dbUsername = getenv('EXTERNAL_MYSQL_USER');
+    $dbPassword = getenv('EXTERNAL_MYSQL_PASSWORD');
+    $pdo        = new PDO($dbString, $dbUsername, $dbPassword);
 }
 
 /**
