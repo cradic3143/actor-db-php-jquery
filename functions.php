@@ -14,8 +14,8 @@ function isXHR() {
  */
 function connect() {
 	global $pdo;
-    // $pdo = new PDO("mysql:host=sakiladesign48.db.6897065.hostedresource.com;dbname=sakiladesign48", "sakiladesign48", "Onerocks13");
-    $pdo = new PDO(EXTERNAL_DATABASE_URL);
+    $dbUrl = getenv('EXTERNAL_DATABASE_URL');
+    $pdo = new PDO($dbUrl);
 }
 
 /**
