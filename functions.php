@@ -1,5 +1,5 @@
 <?php
-
+require_once('memcache.caching.php');
 /**
  * Determines if request was through ajax or not
  * @return boolean
@@ -14,11 +14,15 @@ function isXHR() {
  */
 function connect() {
 	global $pdo;
-    $dbString   = getenv('EXTERNAL_MYSQL_STRING');
-    $dbUsername = getenv('EXTERNAL_MYSQL_USER');
-    $dbPassword = getenv('EXTERNAL_MYSQL_PASSWORD');
+    // $dbString   = getenv('EXTERNAL_MYSQL_STRING') || "mysql:host=localhost;dbname=sakila";
+    // $dbUsername = getenv('EXTERNAL_MYSQL_USER');
+    // $dbPassword = getenv('EXTERNAL_MYSQL_PASSWORD');
+    $dbString   = "mysql:host=localhost;dbname=sakila";
+    $dbUsername = "root";
+    $dbPassword = "root";
     $pdo        = new PDO($dbString, $dbUsername, $dbPassword);
 }
+
 
 /**
  * Query databse to get actors by last name

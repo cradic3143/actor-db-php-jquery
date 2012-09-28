@@ -2,6 +2,12 @@
 require 'functions.php';
 connect();
 
+$oCache = new CacheMemcache();
+
+if ( $oCache->bEnabled ) {
+    $oCache->setData('actor_info', 'testing one two three');
+}
+ 
 /**
  * output JSON for ajax request
  */
@@ -12,6 +18,7 @@ if ( isXHR() && isset($_POST['q']) ) {
 
 if ( isset($_POST['q']) ) {
 	$actors = get_actors_by_last_name( $_POST['q'] );
+    echo "This is memcached data " . $oCache->getData('actor_info');
 }
 
 if ( isXHR() && isset( $_POST['actor_id'] ) )  {
