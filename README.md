@@ -31,3 +31,7 @@ View working version here: http://actorsearch-design48.herokuapp.com/
 ![selection](http://content.screencast.com/users/User48/folders/Jing/media/a294301a-9c7c-465a-b5b6-7317c5893af4/00000052.png)
 
 ![detail](http://content.screencast.com/users/User48/folders/Jing/media/4435e7e1-0f65-449b-97d7-db5f52fe5c08/00000053.png)
+
+### Todo
+
+* test memcache for query/result performance
